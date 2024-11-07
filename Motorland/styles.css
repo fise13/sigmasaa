@@ -1,0 +1,381 @@
+@charset "UTF-8";
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(0, 120, 212, 0.4));
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #333;
+  min-height: 100vh;
+}
+
+.header {
+  text-align: center;
+  padding: 3rem;
+  background: linear-gradient(135deg, #000000, #222222);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  z-index: 10;
+  animation: slideDown 1.5s ease-in-out;
+}
+
+.header h1 {
+  font-size: 3rem;
+  margin: 0;
+  animation: typing 3s steps(30, end), blink-caret 0.5s step-end infinite;
+}
+
+.header p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  animation: fadeInUp 2s ease-in-out;
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Контейнер для карточек */
+.engine-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.engine-card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 500px;
+  width: 350px;
+  opacity: 0;
+  animation: fadeIn 1.2s ease-in-out forwards;
+}
+
+.engine-card:hover {
+  transform: scale(1.06);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Изображения */
+.engine-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+}
+
+.engine-card:hover img {
+  transform: scale(1.08);
+}
+
+.engine-card h3 {
+  font-size: 1.8rem;
+  margin: 1.5rem 0;
+  color: #0078D4;
+  animation: fadeInText 1.2s ease-in-out forwards;
+}
+
+.engine-card p {
+  font-size: 1rem;
+  color: #555;
+  flex-grow: 1;
+  margin: 1rem 0;
+}
+
+.details-button {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #0078D4, #005BB5);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.4s ease, transform 0.3s ease;
+  align-self: flex-start;
+  display: inline-block;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.details-button:hover {
+  background: linear-gradient(135deg, #005BB5, #004087);
+  transform: translateY(-5px);
+}
+
+.details-button:active {
+  transform: translateY(3px);
+}
+
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.logo {
+  position: relative;
+  top: 1rem;
+  left: 1rem;
+  width: 100px;
+  opacity: 0;
+  animation: fadeInLogo 2s ease-in-out forwards;
+}
+
+@keyframes fadeInLogo {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Эффект печати */
+.typing-effect {
+  font-size: 2em;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #ffffff;
+  animation: typing 3s steps(30, end), blink-caret 0.5s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #61dafb; }
+}
+
+@media (max-width: 768px) {
+  .engine-cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .engine-card {
+    width: 90%;
+    margin: 1.5rem;
+  }
+
+  .engine-card h3 {
+    font-size: 1.6rem;
+  }
+
+  .details-button {
+    width: 100%;
+    text-align: center;
+  
+  }
+  /* Кнопки "Купить" и "Связаться" */
+/* Стиль для всех кнопок */
+/* Основной стиль для всех кнопок */
+/* Основной стиль для всех кнопок */
+/* Основной стиль для всех кнопок */
+/* Стиль кнопок */
+/* Стиль кнопок */
+/* Стиль кнопок */
+/* Общие стили для кнопок */
+/* Общие стили для кнопок */
+button, .cta-btn {
+  padding: 16px 32px; /* Увеличенные отступы для кнопок */
+  background: linear-gradient(145deg, #0078D4, #005BB5); /* Градиент для кнопок */
+  color: #fff;
+  font-size: 1.2rem; /* Увеличенный размер шрифта для лучшей видимости */
+  border: none;
+  border-radius: 30px; /* Более округлые края */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Легкая тень */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-decoration: none;
+  z-index: 10; /* Убедимся, что кнопки всегда сверху */
+  min-width: 200px; /* Минимальная ширина кнопки */
+  margin: 10px; /* Отступы вокруг кнопок */
+}
+
+/* Эффект при наведении на кнопку */
+/* Кнопки "Купить" и "Связаться" */
+/* Общие стили для кнопок */
+.cta-btn {
+  padding: 1rem 2rem;
+  background: linear-gradient(145deg, #0078D4, #005BB5); /* Градиент для кнопки */
+  color: #fff;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Легкая тень */
+  max-width: 400px;
+  height: 50px;
+  text-align: center;
+  margin: 10px auto;
+  z-index: 10; /* Убедимся, что кнопки всегда поверх других элементов */
+  position: relative;
+}
+
+/* Эффект при наведении на кнопку */
+.cta-btn:hover {
+  background: linear-gradient(145deg, #005BB5, #003D8A); /* Темный градиент при наведении */
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Усиленная тень */
+}
+
+/* Эффект при нажатии на кнопку */
+.cta-btn:active {
+  transform: translateY(2px);
+}
+
+/* Обводка при фокусе */
+.cta-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.5); /* Синяя обводка при фокусе */
+}
+
+/* Стиль для иконок внутри кнопок */
+.cta-btn i {
+  font-size: 1.4rem;
+  transition: transform 0.3s ease;
+}
+
+/* Эффект при наведении на иконку */
+.cta-btn:hover i {
+  transform: translateX(5px); /* Смещение иконки при наведении */
+}
+
+/* Цвета для кнопок "Связаться" и "Купить" */
+.contact-btn {
+  background: linear-gradient(145deg, #28a745, #218838); /* Зеленый градиент для "Связаться" */
+}
+
+.purchase-btn {
+  background: linear-gradient(145deg, #f39c12, #e67e22); /* Оранжевый градиент для "Купить" */
+}
+
+/* Центровка кнопок на экране */
+.cta-btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Высота контейнера — 100% экрана */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+}
+
+/* Убедитесь, что кнопки в контейнере корректно отображаются */
+.cta-btn {
+  margin: 20px; /* Отступы между кнопками */
+}
+
+/* Стиль для страницы с кнопками, когда экран полноэкранный */
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #111; /* Темный фон */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Для мобильных устройств и малых экранов */
+@media (max-width: 768px) {
+  .cta-btn {
+    width: 80%; /* Кнопки становятся шире на маленьких экранах */
+    padding: 15px 30px;
+    font-size: 1.2rem;
+  }
+
+  .cta-btn i {
+    font-size: 1.6rem;
+  }
+}
+
+/* Для экранов с минимальной шириной 1200px */
+@media (min-width: 1200px) {
+  .cta-btn {
+    width: 300px;
+    padding: 20px 40px; /* Большие отступы для больших экранов */
+    font-size: 1.2rem;
+  }
+
+  .cta-btn i {
+    font-size: 1.6rem;
+  }
+}
+}
+/* Новый стиль для строгого текста */
+
+/*# sourceMappingURL=styles.css.map */
